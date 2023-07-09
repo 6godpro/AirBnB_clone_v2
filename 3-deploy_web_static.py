@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""""
+"""Creates and distributes an archive to the web servers."""
 
 import os.path
 from datetime import datetime
@@ -7,9 +7,7 @@ from fabric.api import (
     env,
     local,
     put,
-    run,
-    task,
-    execute
+    run
 )
 
 env.hosts = ['52.87.215.172', '100.26.231.127']
@@ -73,7 +71,6 @@ def do_deploy(archive_path):
 
 def deploy():
     """Creates and distributes an archive to web servers."""
-
     global shared_file
     deploy.flag = getattr(deploy, 'flag', False)
     if deploy.flag is False:
