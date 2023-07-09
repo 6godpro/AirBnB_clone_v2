@@ -87,7 +87,7 @@ def do_clean(number=0):
     total_files = local('find versions/ -type f | wc -l', capture=True).stdout
     total_files = int(total_files) - int(number)
     if total_files >= 0:
-        local('rm -f $(ls versions | head -n {})'.format(total_files))
+        local('rm -f $(find versions -type f | head -n {})'.format(total_files))
 
     total_files = run('find /data/web_static/releases/'
                       ' -mindepth 1 -maxdepth 1 -type d | wc -l').stdout
