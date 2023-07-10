@@ -84,7 +84,7 @@ def deploy():
 
 def do_clean(number=0):
     """Deletes out-of-date archives from the servers."""
-    if number == 0:
+    if int(number) == 0:
         number = 1
     total_files = local('find versions/ -type f | wc -l', capture=True).stdout
     total_files = int(total_files) - int(number)
