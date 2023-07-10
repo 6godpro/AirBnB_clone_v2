@@ -84,15 +84,17 @@ def deploy():
 
 def do_clean(number=0):
     """Deletes out-of-date archives from the servers."""
+    if number == 0:
+        number = 1
     total_files = local('find versions/ -type f | wc -l', capture=True).stdout
     total_files = int(total_files) - int(number)
-    if total_files >= 0:
+    if total_files > 0:
         local('rm -f $(find versions -type f | head -n {})'.format(total_files))
 
     total_files = run('find /data/web_static/releases/'
                       ' -mindepth 1 -maxdepth 1 -type d | wc -l').stdout
     total_files = int(total_files) - int(number)
-    if total_files >= 0:
+    if total_files > 0:
         run('rm -rf $(find /data/web_static/releases/'
             ' -mindepth 1 -maxdepth 1 -type d -printf "%T@\t%p\n"'
             ' | sort -n | head -n {})'.format(total_files))
