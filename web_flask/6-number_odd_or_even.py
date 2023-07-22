@@ -6,7 +6,7 @@
       /                       : Displays 'Hello HBNB!'
       /hbnb                   : Displays 'HBNB'
       /c/<text>               : Displays 'C <text>'
-      /python/<text>          : if a <text> was provided Displays 'Python <text>'
+      /python/<text>          : if <text> was provided Displays 'Python <text>'
                                 Otherwise, it displays 'Python is cool'
       /number/<n>             : Displays '<n> is a number' only if n is an
                                 integer.
