@@ -38,8 +38,9 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """Returns a dictionary containing depending key: object
-           pairs on the cls provided."""
+        """Returns a dictionary key: object depending
+           pairs on the class provided.
+        """
         if cls is None:
             objects = self.__session.query(State).all()
             objects.extend(self.__session.query(City).all())
@@ -77,3 +78,7 @@ class DBStorage:
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
+
+    def close(self):
+        """ Closes the SQLAlchemy session. """
+        self.__session.close()

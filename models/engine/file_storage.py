@@ -15,9 +15,9 @@ class FileStorage:
         """
         if cls is not None:
             return {key: obj for key, obj
-                    in FileStorage.__objects.items()
+                    in self.__objects.items()
                     if isinstance(obj, cls)}
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -69,3 +69,7 @@ class FileStorage:
                     self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
+
+        def close(self):
+            """ Calls the reload method. """
+            self.reload()
