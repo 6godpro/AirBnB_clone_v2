@@ -9,3 +9,6 @@ main_delete.py
 .vscode
 file.*
 test_file.py
+web_flask/.venv
+web_flask/dump.sql
+Pipfile*
