@@ -19,6 +19,5 @@ class State(BaseModel, Base):
     else:
         @property
         def cities(self):
-            new = [obj for obj in models.storage.all(City).values()
-                   if obj.state_id == self.id]
-            return new
+            return [obj for obj in models.storage.all(City).values()
+                    if obj.state_id == self.id]
