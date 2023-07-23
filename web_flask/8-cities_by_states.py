@@ -2,7 +2,8 @@
 """
     Starts a Flask web application.
 
-    Route: '/states_list': Displays the list of states using HTML list.
+    Route: '/cities_by_states': Displays the list of states followed
+           by their cities using HTML list.
 """
 
 from flask import Flask, render_template
@@ -14,8 +15,6 @@ app = Flask(__name__)
 
 @app.route("/cities_by_states", strict_slashes=False)
 def cities_by_states():
-    # for state in (storage.all(State).values()):
-    #     print(dir(state))
     return render_template("8-cities_by_states.html",
                            all_states=storage.all(State).values())
 

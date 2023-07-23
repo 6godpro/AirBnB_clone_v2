@@ -11,4 +11,5 @@ file.*
 test_file.py
 web_flask/.venv
 web_flask/dump.sql
+web_flask/models/*
 Pipfile*
